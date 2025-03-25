@@ -3,7 +3,7 @@
             <p>Soit \( f \) la fonction linéaire de coefficient \( a \) telle que : \( f(\sqrt{2}) = 2 \).</p>
             <ol>
                 <li>
-                    <strong>Montrer que pour tout réels \( x \) et \( y \), on a : \( f(x + y) = f(x) + f(y) \).</strong>
+                    <div class="strong">Montrer que pour tout réels \( x \) et \( y \), on a : \( f(x + y) = f(x) + f(y) \).</div>
                     <p>La fonction \( f \) est linéaire, donc de la forme \( f(x) = ax \).</p>
                     <div class="step">
                         Calculons \( f(x + y) \) :<br>
@@ -21,7 +21,7 @@
                     <p><span class="response">Réponse :</span> Ainsi, pour tout réels \( x \) et \( y \), \( f(x + y) = f(x) + f(y) \).</p>
                 </li>
                 <li>
-                    <strong>Calculer le coefficient \( a \) de \( f \).</strong>
+                    <div class="strong">Calculer le coefficient \( a \) de \( f \).</div>
                     <p>Utilisons la condition donnée : \( f(\sqrt{2}) = 2 \).</p>
                     <div class="step">
                         Puisque \( f(x) = ax \), on a :<br>
@@ -45,7 +45,7 @@
                     <p><span class="response">Réponse :</span> Le coefficient \( a \) est \( a = \sqrt{2} \), donc \( f(x) = \sqrt{2} x \).</p>
                 </li>
                 <li>
-                    <strong>Tracer \( \Delta_f \), la représentation graphique de \( f \).</strong>
+                    <div class="strong">Tracer \( \Delta_f \), la représentation graphique de \( f \).</div>
                     <p>La fonction \( f(x) = \sqrt{2} x \) est une fonction linéaire de la forme \( f(x) = ax \), avec \( a = \sqrt{2} \).</p>
                     <div class="step">
                         - La représentation graphique \( \Delta_f \) est une droite passant par l’origine \( (0, 0) \), car \( f(0) = 0 \).
@@ -57,11 +57,11 @@
                         Un point sur la droite est \( (\sqrt{2}, 2) \), car \( f(\sqrt{2}) = 2 \).
                     </div>
                     <p>Voici le graphique de \( \Delta_f \) :</p>
-                    <div id="graph" style=" margin: 20px 0; width: 100%; max-width: 600px; height: 400px;"></div>
+                    <div id="graph" style="margin: 20px 0; width: 100%; max-width: 600px; height: 400px;"></div>
                     <p><span class="response">Réponse :</span> \( \Delta_f \) est la droite d’équation \( y = \sqrt{2} x \), passant par l’origine avec une pente de \( \sqrt{2} \).</p>
                 </li>
                 <li>
-                    <strong>Calculer \( f(\sqrt{8} + \sqrt{12}) \).</strong>
+                    <div class="strong">Calculer \( f(\sqrt{8} + \sqrt{12}) \).</div>
                     <p>Simplifions d’abord l’argument \( \sqrt{8} + \sqrt{12} \).</p>
                     <div class="step">
                         \[
@@ -92,7 +92,7 @@
                     <p><span class="response">Réponse :</span> \( f(\sqrt{8} + \sqrt{12}) = 4 + 2 \sqrt{6} \).</p>
                 </li>
                 <li>
-                    <strong>Déterminer \( m \) pour que le point \( A(\sqrt{2} m; m^2 + 1) \) soit un point de \( \Delta_f \).</strong>
+                    <div class="strong">Déterminer \( m \) pour que le point \( A(\sqrt{2} m; m^2 + 1) \) soit un point de \( \Delta_f \).</div>
                     <p>Un point \( (x, y) \) appartient à \( \Delta_f \) si \( y = f(x) \).</p>
                     <div class="step">
                         Ici, \( x = \sqrt{2} m \) et \( y = m^2 + 1 \). Calculons \( f(x) \) :<br>
@@ -125,61 +125,60 @@
                 </li>
             </ol>
         </div>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script>
-        // Définir les données pour la droite y = √2 x
-        const sqrt2 = Math.sqrt(2);
-        const xValues = [];
-        const yValues = [];
-        for (let x = -2; x <= 2; x += 0.1) {
-            xValues.push(x);
-            yValues.push(sqrt2 * x);
-        }
+        <script>
+            // Définir les données pour la droite y = √2 x
+            const sqrt2 = Math.sqrt(2);
+            const xValues = [];
+            const yValues = [];
+            for (let x = -2; x <= 2; x += 0.1) {
+                xValues.push(x);
+                yValues.push(sqrt2 * x);
+            }
 
-        // Définir le point A(√2, 2)
-        const pointA = {
-            x: [sqrt2],
-            y: [2],
-            mode: 'markers+text',
-            type: 'scatter',
-            name: 'Point A',
-            text: ['A(√2, 2)'],
-            textposition: 'top center',
-            marker: { size: 10, color: 'red' }
-        };
+            // Définir le point A(√2, 2)
+            const pointA = {
+                x: [sqrt2],
+                y: [2],
+                mode: 'markers+text',
+                type: 'scatter',
+                name: 'Point A',
+                text: ['A(√2, 2)'],
+                textposition: 'top center',
+                marker: { size: 10, color: 'red' }
+            };
 
-        // Définir la droite Δ_f
-        const line = {
-            x: xValues,
-            y: yValues,
-            mode: 'lines',
-            name: 'Δ_f: y = √2 x',
-            line: { color: 'green' }
-        };
+            // Définir la droite Δ_f
+            const line = {
+                x: xValues,
+                y: yValues,
+                mode: 'lines',
+                name: 'Δ_f: y = √2 x',
+                line: { color: 'green' }
+            };
 
-        // Définir les axes
-        const layout = {
-            title: 'Représentation graphique de f(x) = √2 x',
-            xaxis: {
-                title: 'x',
-                showgrid: true,
-                zeroline: true,
-                range: [-2, 2],
-                tickvals: [-sqrt2, 0, sqrt2],
-                ticktext: ['-√2', '0', '√2']
-            },
-            yaxis: {
-                title: 'f(x)',
-                showgrid: true,
-                zeroline: true,
-                range: [-3, 3],
-                tickvals: [-2, 0, 2],
-                ticktext: ['-2', '0', '2']
-            },
-            showlegend: true,
-            margin: { t: 50, b: 50, l: 50, r: 50 }
-        };
+            // Définir les axes
+            const layout = {
+                title: 'Représentation graphique de f(x) = √2 x',
+                xaxis: {
+                    title: 'x',
+                    showgrid: true,
+                    zeroline: true,
+                    range: [-2, 2],
+                    tickvals: [-sqrt2, 0, sqrt2],
+                    ticktext: ['-√2', '0', '√2']
+                },
+                yaxis: {
+                    title: 'f(x)',
+                    showgrid: true,
+                    zeroline: true,
+                    range: [-3, 3],
+                    tickvals: [-2, 0, 2],
+                    ticktext: ['-2', '0', '2']
+                },
+                showlegend: true,
+                margin: { t: 50, b: 50, l: 50, r: 50 }
+            };
 
-        // Tracer le graphique
-        Plotly.newPlot('graph', [line, pointA], layout);
-    </script>
+            // Tracer le graphique
+            Plotly.newPlot('graph', [line, pointA], layout);
+        </script>
