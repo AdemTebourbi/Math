@@ -17,18 +17,5 @@
         "correctionUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/linear-functions-exercise2-correction.html"
       }
     ]
-  },
-  {
-    "id": "geometry",
-    "name": "Geometry",
-    "courseUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/geometry-course.html",
-    "exercises": [
-      {
-        "id": "exercise1",
-        "name": "Exercise 1",
-        "url": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/geometry-exercise1.html",
-        "correctionUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/geometry-exercise1-correction.html"
-      }
-    ]
   }
 ]
