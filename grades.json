@@ -1,0 +1,12 @@
+[
+  {
+    "id": "1st-year",
+    "name": "1st Year Secondary",
+    "chaptersPath": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/chapters-1st-year.json"
+  },
+  {
+    "id": "2nd-year",
+    "name": "2nd Year Secondary",
+    "chaptersPath": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/chapters-2nd-year.json"
+  }
+]

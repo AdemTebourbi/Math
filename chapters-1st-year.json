@@ -1,0 +1,34 @@
+[
+  {
+    "id": "linear-functions",
+    "name": "Linear Functions",
+    "courseUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/linear-functions-course.html",
+    "exercises": [
+      {
+        "id": "exercise1",
+        "name": "Exercise 1",
+        "url": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/linear-functions-exercise1.html",
+        "correctionUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/linear-functions-exercise1-correction.html"
+      },
+      {
+        "id": "exercise2",
+        "name": "Exercise 2",
+        "url": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/linear-functions-exercise2.html",
+        "correctionUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/linear-functions-exercise2-correction.html"
+      }
+    ]
+  },
+  {
+    "id": "geometry",
+    "name": "Geometry",
+    "courseUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/geometry-course.html",
+    "exercises": [
+      {
+        "id": "exercise1",
+        "name": "Exercise 1",
+        "url": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/geometry-exercise1.html",
+        "correctionUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/geometry-exercise1-correction.html"
+      }
+    ]
+  }
+]
