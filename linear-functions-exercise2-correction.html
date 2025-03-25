@@ -1,47 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Correction : Exercice 2</title>
-    <!-- Inclusion de MathJax pour les formules mathématiques -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <!-- Inclusion de Plotly.js pour le graphique -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <style>
-        .response {
-            font-weight: 700;
-            color: #1e293b;
-            background: linear-gradient(to right, #1e3a8a, #3b82f6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .step {
-            margin-top: 10px;
-        }
-        .exercise-content li {
-            margin-bottom: 20px;
-        }
-        .exercise-content {
-            font-family: 'Open Sans', 'Arial', sans-serif;
-            color: #1e293b;
-            line-height: 1.8;
-        }
-        .exercise-content p {
-            margin-bottom: 15px;
-        }
-        #graph {
-            margin: 20px 0;
-            width: 100%;
-            max-width: 600px;
-            height: 400px;
-        }
-    </style>
-</head>
-<body>
-    <section class="exercise-container">
+
         <h2>Correction : Exercice 2</h2>
         <div class="exercise-content">
             <p>Soit \( f \) la fonction linéaire de coefficient \( a \) telle que : \( f(\sqrt{2}) = 2 \).</p>
@@ -169,7 +126,6 @@
                 </li>
             </ol>
         </div>
-    </section>
 
     <!-- Script pour générer le graphique avec Plotly.js -->
     <script>
@@ -229,5 +185,3 @@
         // Tracer le graphique
         Plotly.newPlot('graph', [line, pointA], layout);
     </script>
-</body>
-</html>
