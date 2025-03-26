@@ -1,194 +1,191 @@
 
-        <div class="exercise-content">
-            <p>Soit \( f \) la fonction linéaire de coefficient \( a \) telle que : \( f(\sqrt{2}) = 2 \).</p>
-            <ol>
-                <li>
-                    <div class="strong">Montrer que pour tout réels \( x \) et \( y \), on a : \( f(x + y) = f(x) + f(y) \).</div>
-                    <p>La fonction \( f \) est linéaire, donc de la forme \( f(x) = ax \).</p>
-                    <div class="step">
-                        Calculons \( f(x + y) \) :<br>
-                        \[
-                        f(x + y) = a (x + y) \\
-                        = ax + ay
-                        \]
-                    </div>
-                    <div class="step">
-                        Calculons \( f(x) + f(y) \) :<br>
-                        \[
-                        f(x) + f(y) = ax + ay
-                        \]
-                    </div>
-                    <p>Nous constatons que \( f(x + y) = ax + ay = f(x) + f(y) \).</p>
-                    <p><span class="response">Réponse :</span> Ainsi, pour tout réels \( x \) et \( y \), \( f(x + y) = f(x) + f(y) \).</p>
-                </li>
-                <li>
-                    <div class="strong">Calculer le coefficient \( a \) de \( f \).</div>
-                    <p>Utilisons la condition donnée : \( f(\sqrt{2}) = 2 \).</p>
-                    <div class="step">
-                        Puisque \( f(x) = ax \), on a :<br>
-                        \[
-                        f(\sqrt{2}) = a \times \sqrt{2} = 2
-                        \]
-                    </div>
-                    <div class="step">
-                        Isolons \( a \) :<br>
-                        \[
-                        a \sqrt{2} = 2 \implies a = \frac{2}{\sqrt{2}}
-                        \]
-                    </div>
-                    <div class="step">
-                        Simplifions \( a \) :<br>
-                        \[
-                        a = \frac{2}{\sqrt{2}} = \frac{2}{\sqrt{2}} \times \frac{\sqrt{2}}{\sqrt{2}} \\
-                        = \frac{2 \sqrt{2}}{2} = \sqrt{2}
-                        \]
-                    </div>
-                    <p>Donc, \( f(x) = \sqrt{2} x \).</p>
-                    <p><span class="response">Réponse :</span> Le coefficient \( a \) est \( a = \sqrt{2} \), donc \( f(x) = \sqrt{2} x \).</p>
-                </li>
-                <li>
-                    <div class="strong">Tracer \( \Delta_f \), la représentation graphique de \( f \).</div>
-                    <p>La fonction \( f(x) = \sqrt{2} x \) est une fonction linéaire de la forme \( f(x) = ax \), avec \( a = \sqrt{2} \).</p>
-                    <div class="step">
-                        - La représentation graphique \( \Delta_f \) est une droite passant par l’origine \( (0, 0) \), car \( f(0) = 0 \).
-                    </div>
-                    <div class="step">
-                        - Le coefficient directeur est \( a = \sqrt{2} \), donc la pente de la droite est \( \sqrt{2} \approx 1.414 \).
-                    </div>
-                    <div class="step">
-                        Un point sur la droite est \( (\sqrt{2}, 2) \), car \( f(\sqrt{2}) = 2 \).
-                    </div>
-                    <p>Voici le graphique de \( \Delta_f \) :</p>
-                    <div id="graph" style="margin: 20px 0; width: 100%; max-width: 600px; height: 400px;"></div>
-                    <p><span class="response">Réponse :</span> \( \Delta_f \) est la droite d’équation \( y = \sqrt{2} x \), passant par l’origine avec une pente de \( \sqrt{2} \).</p>
-                </li>
-                <li>
-                    <div class="strong">Calculer \( f(\sqrt{8} + \sqrt{12}) \).</div>
-                    <p>Simplifions d’abord l’argument \( \sqrt{8} + \sqrt{12} \).</p>
-                    <div class="step">
-                        \[
-                        \sqrt{8} = \sqrt{4 \times 2} = \sqrt{4} \times \sqrt{2} \\
-                        = 2 \sqrt{2}
-                        \]
-                    </div>
-                    <div class="step">
-                        \[
-                        \sqrt{12} = \sqrt{4 \times 3} = \sqrt{4} \times \sqrt{3} \\
-                        = 2 \sqrt{3}
-                        \]
-                    </div>
-                    <div class="step">
-                        \[
-                        \sqrt{8} + \sqrt{12} = 2 \sqrt{2} + 2 \sqrt{3}
-                        \]
-                    </div>
-                    <div class="step">
-                        Calculons \( f(\sqrt{8} + \sqrt{12}) \) avec \( f(x) = \sqrt{2} x \) :<br>
-                        \[
-                        f(\sqrt{8} + \sqrt{12}) = f(2 \sqrt{2} + 2 \sqrt{3}) \\
-                        = \sqrt{2} (2 \sqrt{2} + 2 \sqrt{3})
-                        \]
-                    </div>
-                    <div class="step">
-                        \[
-                        \sqrt{2} \times 2 \sqrt{2} + \sqrt{2} \times 2 \sqrt{3} = 2 \sqrt{2} \times \sqrt{2} + 2 \sqrt{2} \times \sqrt{3} \\
-                        = 2 \times 2 + 2 \sqrt{6} = 4 + 2 \sqrt{6}
-                        \]
-                    </div>
-                    <p><span class="response">Réponse :</span> \( f(\sqrt{8} + \sqrt{12}) = 4 + 2 \sqrt{6} \).</p>
-                </li>
-                <li>
-                    <div class="strong">Déterminer \( m \) pour que le point \( A(\sqrt{2} m; m^2 + 1) \) soit un point de \( \Delta_f \).</div>
-                    <p>Un point \( (x, y) \) appartient à \( \Delta_f \) si \( y = f(x) \).</p>
-                    <div class="step">
-                        Ici, \( x = \sqrt{2} m \) et \( y = m^2 + 1 \). Calculons \( f(x) \) :<br>
-                        \[
-                        f(\sqrt{2} m) = \sqrt{2} \times (\sqrt{2} m) \\
-                        = \sqrt{2} \times \sqrt{2} \times m = 2m
-                        \]
-                    </div>
-                    <div class="step">
-                        Pour que \( A \) soit sur \( \Delta_f \), on doit avoir \( y = f(x) \) :<br>
-                        \[
-                        m^2 + 1 = 2m
-                        \]
-                    </div>
-                    <div class="step">
-                        Résolvons l’équation :<br>
-                        \[
-                        m^2 + 1 = 2m \implies m^2 - 2m + 1 = 0 \\
-                        \implies (m - 1)^2 = 0 \implies m - 1 = 0 \\
-                        \implies m = 1
-                        \]
-                    </div>
-                    <div class="step">
-                        Vérifions les solutions possibles :<br>
-                        - Si \( m = 1 \), alors \( x = \sqrt{2} \times 1 = \sqrt{2} \), \( y = 1^2 + 1 = 2 \), et \( f(\sqrt{2}) = 2 \), ce qui est correct.<br>
-                        - L’équation \( (m - 1)^2 = 0 \) n’a qu’une solution réelle, donc \( m = 1 \).
-                    </div>
-                    <p><span class="response">Réponse :</span> Le réel \( m \) est \( m = 1 \). On peut aussi accepter \( m = -1 \), mais ici \( m = 1 \) est la solution principale (vérifier selon le contexte). Vérifions \( m = -1 \) :</p>
-                    <div class="step">
-                        Si \( m = -1 \), alors \( x = \sqrt{2} \times (-1) = -\sqrt{2} \), \( y = (-1)^2 + 1 = 2 \), et \( f(-\sqrt{2}) = \sqrt{2} \times (-\sqrt{2}) = -2 \), ce qui ne correspond pas (\( 2 \neq -2 \)). Donc \( m = -1 \) n’est pas une solution.
-                    </div>
-                    <p><span class="response">Réponse finale :</span> \( m = 1 \).</p>
-                </li>
-            </ol>
-        </div>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        <script>
-            // Définir les données pour la droite y = √2 x
-            const sqrt2 = Math.sqrt(2);
-            const xValues = [];
-            const yValues = [];
-            for (let x = -2; x <= 2; x += 0.1) {
-                xValues.push(x);
-                yValues.push(sqrt2 * x);
-            }
+    <div class="exercise-content">
+        <p>Soit \( f \) la fonction linéaire de coefficient \( a \) telle que : \( f(\sqrt{2}) = 2 \).</p>
+        <p class="correction">\( f \) est une fonction linéaire de coefficient \( a \), donc \( f(x) = a x \).</p>
+        <ol>
+            <li>
+                <div class="strong">Montrer que pour tout réels \( x \) et \( y \), on a : \( f(x + y) = f(x) + f(y) \).</div>
+                <div class="step">
+                    \[
+                    f(x) = a x
+                    \]
+                </div>
+                <div class="step">
+                    \[
+                    f(y) = a y
+                    \]
+                </div>
+                <div class="step">
+                    \[
+                    f(x + y) = a (x + y)
+                    \]
+                    \[
+                    = a x + a y
+                    \]
+                    \[
+                    = f(x) + f(y)
+                    \]
+                </div>
+                <p class="correction">Ainsi, pour tout réels \( x \) et \( y \), \( f(x + y) = f(x) + f(y) \).</p>
+            </li>
+            <li>
+                <div class="strong">Calculer le coefficient \( a \) de \( f \).</div>
+                <div class="step">
+                    \[
+                    f(x) = a x
+                    \]
+                    \[
+                    f(\sqrt{2}) = 2
+                    \]
+                </div>
+                <div class="step">
+                    \[
+                    a \times \sqrt{2} = 2
+                    \]
+                    \[
+                    a = \frac{2}{\sqrt{2}}
+                    \]
+                    \[
+                    = \sqrt{2}
+                    \]
+                </div>
+                <p class="correction">Donc \( f(x) = \sqrt{2} x \).</p>
+                <p class="correction">Donc \( a = \sqrt{2} \).</p>
+            </li>
+            <li>
+                <div class="strong">Tracer \( \Delta_f \), la représentation graphique de \( f \).</div>
+                <p class="correction">\( f \) est une fonction linéaire, donc \( \Delta_f \) est une droite qui passe par l’origine du repère.</p>
+                <p class="correction">De plus \( f(\sqrt{2}) = 2 \), donc \( E(\sqrt{2}, 2) \in \Delta_f \).</p>
+                <div id="graph"></div>
+                <p class="response">Réponse :</p>
+                <p class="correction">\( \Delta_f \) est la droite d’équation \( y = \sqrt{2} x \), passant par l’origine.</p>
+            </li>
+            <li>
+                <div class="strong">Calculer \( f(\sqrt{8} + \sqrt{12}) \).</div>
+                <div class="step">
+                    \[
+                    f(\sqrt{8} + \sqrt{12}) = f(\sqrt{8}) + f(\sqrt{12})
+                    \]
+                </div>
+                <div class="step">
+                    \[
+                    f(\sqrt{8}) + f(\sqrt{12})
+                    \]
+                    \[
+                    = f(2 \sqrt{2}) + f(2 \sqrt{3})
+                    \]
+                    \[
+                    = \sqrt{2} \times 2 \sqrt{2} + \sqrt{2} \times 2 \sqrt{3}
+                    \]
+                    \[
+                    = 2 \sqrt{2} \times \sqrt{2} + 2 \sqrt{2} \times \sqrt{3}
+                    \]
+                    \[
+                    = 4 + 2 \sqrt{6}
+                    \]
+                </div>
+                <p class="correction">\( f(\sqrt{8} + \sqrt{12}) = 4 + 2 \sqrt{6} \).</p>
+            </li>
+            <li>
+                <div class="strong">Déterminer \( m \) pour que le point \( A(\sqrt{2} |m|, m^2 + 1) \) soit un point de \( \Delta_f \).</div>
+                <div class="step">
+                    \[
+                    A(\sqrt{2} |m|, m^2 + 1) \in \Delta_f
+                    \]
+                </div>
+                <div class="step">
+                    \[
+                    \sqrt{2} \times \sqrt{2} |m| = m^2 + 1
+                    \]
+                </div>
+                <div class="step">
+                    \[
+                    2 |m| = (m^2 + 1)
+                    \]
+                </div>
+                <div class="step">
+                    \[
+                    |m|^2 - 2 |m| + 1 = 0
+                    \]
+                </div>
+                <div class="step">
+                    \[
+                    (|m| - 1)^2 = 0
+                    \]
+                </div>
+                <div class="step">
+                    \[
+                    |m| - 1 = 0
+                    \]
+                    \[
+                    |m| = 1
+                    \]
+                </div>
+                <div class="step">
+                    \[
+                    m = -1 \text{ ou } m = 1
+                    \]
+                </div>
+                <p class="correction">\( A(\sqrt{2} |m|, m^2 + 1) \in \Delta_f \)</p>
+                <p class="correction">\( m = -1 \text{ ou } m = 1 \)</p>
+            </li>
+        </ol>
+    </div>
 
-            // Définir le point A(√2, 2)
-            const pointA = {
-                x: [sqrt2],
-                y: [2],
-                mode: 'markers+text',
-                type: 'scatter',
-                name: 'Point A',
-                text: ['A(√2, 2)'],
-                textposition: 'top center',
-                marker: { size: 10, color: 'red' }
-            };
+    <script>
+        // Définir les données pour la droite y = √2 x
+        const sqrt2 = Math.sqrt(2);
+        const xValues = [];
+        const yValues = [];
+        for (let x = -2; x <= 2; x += 0.1) {
+            xValues.push(x);
+            yValues.push(sqrt2 * x);
+        }
 
-            // Définir la droite Δ_f
-            const line = {
-                x: xValues,
-                y: yValues,
-                mode: 'lines',
-                name: 'Δ_f: y = √2 x',
-                line: { color: 'green' }
-            };
+        // Définir le point E(√2, 2)
+        const pointE = {
+            x: [sqrt2],
+            y: [2],
+            mode: 'markers+text',
+            type: 'scatter',
+            name: 'Point E',
+            text: ['E(√2, 2)'],
+            textposition: 'top center',
+            marker: { size: 10, color: 'red' }
+        };
 
-            // Définir les axes
-            const layout = {
-                title: 'Représentation graphique de f(x) = √2 x',
-                xaxis: {
-                    title: 'x',
-                    showgrid: true,
-                    zeroline: true,
-                    range: [-2, 2],
-                    tickvals: [-sqrt2, 0, sqrt2],
-                    ticktext: ['-√2', '0', '√2']
-                },
-                yaxis: {
-                    title: 'f(x)',
-                    showgrid: true,
-                    zeroline: true,
-                    range: [-3, 3],
-                    tickvals: [-2, 0, 2],
-                    ticktext: ['-2', '0', '2']
-                },
-                showlegend: true,
-                margin: { t: 50, b: 50, l: 50, r: 50 }
-            };
+        // Définir la droite Δ_f
+        const line = {
+            x: xValues,
+            y: yValues,
+            mode: 'lines',
+            name: 'Δ_f: y = √2 x',
+            line: { color: 'green' }
+        };
 
-            // Tracer le graphique
-            Plotly.newPlot('graph', [line, pointA], layout);
-        </script>
+        // Définir les axes
+        const layout = {
+            title: 'Représentation graphique de f(x) = √2 x',
+            xaxis: {
+                title: 'x',
+                showgrid: true,
+                zeroline: true,
+                range: [-2, 2],
+                tickvals: [-sqrt2, 0, sqrt2],
+                ticktext: ['-√2', '0', '√2']
+            },
+            yaxis: {
+                title: 'f(x)',
+                showgrid: true,
+                zeroline: true,
+                range: [-3, 3],
+                tickvals: [-2, 0, 2],
+                ticktext: ['-2', '0', '2']
+            },
+            showlegend: true,
+            margin: { t: 50, b: 50, l: 50, r: 50 }
+        };
+
+        // Tracer le graphique
+        Plotly.newPlot('graph', [line, pointE], layout);
+    </script>
