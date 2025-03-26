@@ -35,17 +35,30 @@
         "url": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/vecteurs-et-translations-exercise1.html",
         "correctionUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/vecteurs-et-translations-exercise1-correction.html"
       },
-          {
+      {
         "id": "exercise2",
         "name": "Exercise 2",
         "url": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/vecteurs-et-translations-exercise2.html",
         "correctionUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/vecteurs-et-translations-exercise2-correction.html"
       },
-          {
+      {
         "id": "exercise3",
         "name": "Exercise 3",
         "url": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/vecteurs-et-translations-exercise3.html",
         "correctionUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/vecteurs-et-translations-exercise3-correction.html"
+      }
+    ]
+  },
+  {
+    "id": "fonctions-affines",
+    "name": "Fonctions Affines",
+    "courseUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/fonctions-affines-course.html",
+    "exercises": [
+      {
+        "id": "exercise1",
+        "name": "Exercise 1",
+        "url": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/fonctions-affines-exercise1.html",
+        "correctionUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/fonctions-affines-exercise1-correction.html"
       }
     ]
   }
