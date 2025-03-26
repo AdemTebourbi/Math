@@ -55,14 +55,14 @@
         new p5(function(p) {
             p.setup = function() {
                 let parentWidth = document.getElementById('figure-canvas-i').offsetWidth;
-                let canvasHeight = 400; // Increased height to accommodate all elements
+                let canvasHeight = parentWidth * (2 / 3); // Maintain 3:2 aspect ratio (height = width * 2/3)
                 let canvas = p.createCanvas(parentWidth, canvasHeight);
                 canvas.parent('figure-canvas-i');
 
                 p.background(255);
 
-                let scaleX = parentWidth / 600;
-                let scaleY = canvasHeight / 400; // Scale y-coordinates based on new height
+                let scaleX = parentWidth / 600; // Scale x-coordinates
+                let scaleY = canvasHeight / 400; // Scale y-coordinates based on original height of 400
 
                 // Draw line Δ (horizontal line)
                 p.stroke(0);
@@ -81,15 +81,15 @@
                 // Draw points A, B, D, C, E
                 p.fill(0, 0, 255); // Blue color for points
                 p.noStroke();
-                p.ellipse(200 * scaleX, 250 * scaleY, 10, 10); // Point A
-                p.ellipse(400 * scaleX, 250 * scaleY, 10, 10); // Point B
-                p.ellipse(300 * scaleX, 150 * scaleY, 10, 10); // Point D
-                p.ellipse(500 * scaleX, 150 * scaleY, 10, 10); // Point C
-                p.ellipse(250 * scaleX, 280 * scaleY, 10, 10); // Point E
+                p.ellipse(200 * scaleX, 250 * scaleY, 10 * scaleX, 10 * scaleY); // Point A
+                p.ellipse(400 * scaleX, 250 * scaleY, 10 * scaleX, 10 * scaleY); // Point B
+                p.ellipse(300 * scaleX, 150 * scaleY, 10 * scaleX, 10 * scaleY); // Point D
+                p.ellipse(500 * scaleX, 150 * scaleY, 10 * scaleX, 10 * scaleY); // Point C
+                p.ellipse(250 * scaleX, 280 * scaleY, 10 * scaleX, 10 * scaleY); // Point E
 
                 // Label the points and lines
                 p.fill(0);
-                p.textSize(16);
+                p.textSize(16 * Math.min(scaleX, scaleY)); // Scale text size
                 p.textAlign(p.CENTER);
                 p.text('Δ', 50 * scaleX, 230 * scaleY);
                 p.text('Δ\'', 150 * scaleX, 30 * scaleY);
@@ -106,7 +106,7 @@
 
             p.windowResized = function() {
                 let parentWidth = document.getElementById('figure-canvas-i').offsetWidth;
-                let canvasHeight = 400;
+                let canvasHeight = parentWidth * (2 / 3);
                 p.resizeCanvas(parentWidth, canvasHeight);
                 p.setup();
             };
@@ -116,14 +116,14 @@
         new p5(function(p) {
             p.setup = function() {
                 let parentWidth = document.getElementById('figure-canvas-ii').offsetWidth;
-                let canvasHeight = 500; // Increased height to accommodate large circles
+                let canvasHeight = parentWidth * (2 / 3); // Maintain 3:2 aspect ratio
                 let canvas = p.createCanvas(parentWidth, canvasHeight);
                 canvas.parent('figure-canvas-ii');
 
                 p.background(255);
 
-                let scaleX = parentWidth / 600;
-                let scaleY = canvasHeight / 500; // Scale y-coordinates based on new height
+                let scaleX = parentWidth / 600; // Scale x-coordinates
+                let scaleY = canvasHeight / 500; // Scale y-coordinates based on original height of 500
 
                 // Draw line Δ (horizontal line)
                 p.stroke(0);
@@ -136,23 +136,24 @@
                 // Draw line Δ'' (locus of C, parallel to Δ' and passing through C)
                 p.line(350 * scaleX, 15 * scaleY, 650 * scaleX, 265 * scaleY);
 
-                // Draw circles C' and C''
+                // Draw circles C' and C'' (ensure they are circular by using the same pixel size for x and y diameters)
                 p.noFill();
                 p.stroke(0);
-                p.ellipse(200 * scaleX, 300 * scaleY, 400 * scaleX, 400 * scaleY); // Circle C' (center A, passing through B)
-                p.ellipse(500 * scaleX, 200 * scaleY, 400 * scaleX, 400 * scaleY); // Circle C'' (center C, passing through D)
+                let circleDiameter = 400 * scaleX; // Use scaleX for both x and y to ensure a perfect circle
+                p.ellipse(200 * scaleX, 300 * scaleY, circleDiameter, circleDiameter); // Circle C' (center A, passing through B)
+                p.ellipse(500 * scaleX, 200 * scaleY, circleDiameter, circleDiameter); // Circle C'' (center C, passing through D)
 
                 // Draw points A, B, D, C
                 p.fill(0, 0, 255); // Blue color for points
                 p.noStroke();
-                p.ellipse(200 * scaleX, 300 * scaleY, 10, 10); // Point A
-                p.ellipse(400 * scaleX, 300 * scaleY, 10, 10); // Point B
-                p.ellipse(300 * scaleX, 200 * scaleY, 10, 10); // Point D
-                p.ellipse(500 * scaleX, 200 * scaleY, 10, 10); // Point C
+                p.ellipse(200 * scaleX, 300 * scaleY, 10 * scaleX, 10 * scaleY); // Point A
+                p.ellipse(400 * scaleX, 300 * scaleY, 10 * scaleX, 10 * scaleY); // Point B
+                p.ellipse(300 * scaleX, 200 * scaleY, 10 * scaleX, 10 * scaleY); // Point D
+                p.ellipse(500 * scaleX, 200 * scaleY, 10 * scaleX, 10 * scaleY); // Point C
 
                 // Label the points and lines
                 p.fill(0);
-                p.textSize(16);
+                p.textSize(16 * Math.min(scaleX, scaleY)); // Scale text size
                 p.textAlign(p.CENTER);
                 p.text('Δ', 50 * scaleX, 280 * scaleY);
                 p.text('Δ\'', 150 * scaleX, 30 * scaleY);
@@ -171,7 +172,7 @@
 
             p.windowResized = function() {
                 let parentWidth = document.getElementById('figure-canvas-ii').offsetWidth;
-                let canvasHeight = 500;
+                let canvasHeight = parentWidth * (2 / 3);
                 p.resizeCanvas(parentWidth, canvasHeight);
                 p.setup();
             };
