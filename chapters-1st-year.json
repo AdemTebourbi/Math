@@ -15,6 +15,12 @@
         "name": "Exercise 2",
         "url": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/linear-functions-exercise2.html",
         "correctionUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/linear-functions-exercise2-correction.html"
+      },
+      {
+        "id": "exercise3",
+        "name": "Exercise 3",
+        "url": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/linear-functions-exercise3.html",
+        "correctionUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/linear-functions-exercise3-correction.html"
       }
     ]
   }
