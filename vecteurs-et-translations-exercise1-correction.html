@@ -1,3 +1,4 @@
+
     <div class="exercise-content">
         <p>Dans la figure ci-dessous \( \Delta \) et \( \Delta' \) sont deux droites sécantes. \( A \) et \( B \) sont deux points distincts de \( \Delta \) et \( D \) est un point de \( \Delta' \).</p>
         <p>Soit \( C = t_{\overrightarrow{AB}}(D) \) et \( E = t_{\overrightarrow{AC}}(D) \).</p>
@@ -54,70 +55,9 @@
         new p5(function(p) {
             p.setup = function() {
                 let parentWidth = document.getElementById('figure-canvas-i').offsetWidth;
-                let canvasHeight = 300; // Increased height for larger figure
+                let canvasHeight = 400; // Increased height to accommodate all elements
                 let canvas = p.createCanvas(parentWidth, canvasHeight);
                 canvas.parent('figure-canvas-i');
-
-                p.background(255);
-
-                let scaleX = parentWidth / 600;
-                let scaleY = canvasHeight / 300; // Scale y-coordinates based on new height
-
-                // Draw line Δ (horizontal line)
-                p.stroke(0);
-                p.strokeWeight(2);
-                p.line(50 * scaleX, 200 * scaleY, 550 * scaleX, 200 * scaleY);
-
-                // Draw line Δ' (diagonal line intersecting Δ)
-                p.line(150 * scaleX, 50 * scaleY, 450 * scaleX, 230 * scaleY);
-
-                // Draw line DC (parallel to AB)
-                p.line(300 * scaleX, 150 * scaleY, 500 * scaleX, 150 * scaleY);
-
-                // Draw line DE (parallel to AC)
-                p.line(300 * scaleX, 150 * scaleY, 250 * scaleX, 230 * scaleY);
-
-                // Draw points A, B, D, C, E
-                p.fill(0, 0, 255); // Blue color for points
-                p.noStroke();
-                p.ellipse(200 * scaleX, 200 * scaleY, 10, 10); // Point A
-                p.ellipse(400 * scaleX, 200 * scaleY, 10, 10); // Point B
-                p.ellipse(300 * scaleX, 150 * scaleY, 10, 10); // Point D
-                p.ellipse(500 * scaleX, 150 * scaleY, 10, 10); // Point C
-                p.ellipse(250 * scaleX, 230 * scaleY, 10, 10); // Point E
-
-                // Label the points and lines
-                p.fill(0);
-                p.textSize(16);
-                p.textAlign(p.CENTER);
-                p.text('Δ', 50 * scaleX, 180 * scaleY);
-                p.text('Δ\'', 150 * scaleX, 30 * scaleY);
-                p.text('A', 200 * scaleX, 220 * scaleY);
-                p.text('B', 400 * scaleX, 220 * scaleY);
-                p.text('D', 320 * scaleX, 145 * scaleY);
-                p.text('C', 500 * scaleX, 170 * scaleY);
-                p.text('E', 250 * scaleX, 250 * scaleY);
-            };
-
-            p.draw = function() {
-                // No animation needed
-            };
-
-            p.windowResized = function() {
-                let parentWidth = document.getElementById('figure-canvas-i').offsetWidth;
-                let canvasHeight = 300;
-                p.resizeCanvas(parentWidth, canvasHeight);
-                p.setup();
-            };
-        });
-
-        // Figure for question II (showing the locus of C)
-        new p5(function(p) {
-            p.setup = function() {
-                let parentWidth = document.getElementById('figure-canvas-ii').offsetWidth;
-                let canvasHeight = 400; // Increased height for larger figure with circles
-                let canvas = p.createCanvas(parentWidth, canvasHeight);
-                canvas.parent('figure-canvas-ii');
 
                 p.background(255);
 
@@ -132,22 +72,20 @@
                 // Draw line Δ' (diagonal line intersecting Δ)
                 p.line(150 * scaleX, 50 * scaleY, 450 * scaleX, 280 * scaleY);
 
-                // Draw line Δ'' (locus of C, parallel to Δ' and passing through C)
-                p.line(350 * scaleX, 15 * scaleY, 650 * scaleX, 195 * scaleY);
+                // Draw line DC (parallel to AB)
+                p.line(300 * scaleX, 150 * scaleY, 500 * scaleX, 150 * scaleY);
 
-                // Draw circles C' and C''
-                p.noFill();
-                p.stroke(0);
-                p.ellipse(200 * scaleX, 250 * scaleY, 400 * scaleX, 400 * scaleY); // Circle C' (center A, passing through B)
-                p.ellipse(500 * scaleX, 150 * scaleY, 400 * scaleX, 400 * scaleY); // Circle C'' (center C, passing through D)
+                // Draw line DE (parallel to AC)
+                p.line(300 * scaleX, 150 * scaleY, 250 * scaleX, 280 * scaleY);
 
-                // Draw points A, B, D, C
+                // Draw points A, B, D, C, E
                 p.fill(0, 0, 255); // Blue color for points
                 p.noStroke();
                 p.ellipse(200 * scaleX, 250 * scaleY, 10, 10); // Point A
                 p.ellipse(400 * scaleX, 250 * scaleY, 10, 10); // Point B
                 p.ellipse(300 * scaleX, 150 * scaleY, 10, 10); // Point D
                 p.ellipse(500 * scaleX, 150 * scaleY, 10, 10); // Point C
+                p.ellipse(250 * scaleX, 280 * scaleY, 10, 10); // Point E
 
                 // Label the points and lines
                 p.fill(0);
@@ -155,13 +93,76 @@
                 p.textAlign(p.CENTER);
                 p.text('Δ', 50 * scaleX, 230 * scaleY);
                 p.text('Δ\'', 150 * scaleX, 30 * scaleY);
-                p.text('Δ\'\'', 350 * scaleX, 0 * scaleY);
                 p.text('A', 200 * scaleX, 270 * scaleY);
                 p.text('B', 400 * scaleX, 270 * scaleY);
                 p.text('D', 320 * scaleX, 145 * scaleY);
                 p.text('C', 500 * scaleX, 170 * scaleY);
-                p.text('C\'', 200 * scaleX, 200 * scaleY);
-                p.text('C\'\'', 500 * scaleX, 100 * scaleY);
+                p.text('E', 250 * scaleX, 300 * scaleY);
+            };
+
+            p.draw = function() {
+                // No animation needed
+            };
+
+            p.windowResized = function() {
+                let parentWidth = document.getElementById('figure-canvas-i').offsetWidth;
+                let canvasHeight = 400;
+                p.resizeCanvas(parentWidth, canvasHeight);
+                p.setup();
+            };
+        });
+
+        // Figure for question II (showing the locus of C)
+        new p5(function(p) {
+            p.setup = function() {
+                let parentWidth = document.getElementById('figure-canvas-ii').offsetWidth;
+                let canvasHeight = 500; // Increased height to accommodate large circles
+                let canvas = p.createCanvas(parentWidth, canvasHeight);
+                canvas.parent('figure-canvas-ii');
+
+                p.background(255);
+
+                let scaleX = parentWidth / 600;
+                let scaleY = canvasHeight / 500; // Scale y-coordinates based on new height
+
+                // Draw line Δ (horizontal line)
+                p.stroke(0);
+                p.strokeWeight(2);
+                p.line(50 * scaleX, 300 * scaleY, 550 * scaleX, 300 * scaleY);
+
+                // Draw line Δ' (diagonal line intersecting Δ)
+                p.line(150 * scaleX, 50 * scaleY, 450 * scaleX, 350 * scaleY);
+
+                // Draw line Δ'' (locus of C, parallel to Δ' and passing through C)
+                p.line(350 * scaleX, 15 * scaleY, 650 * scaleX, 265 * scaleY);
+
+                // Draw circles C' and C''
+                p.noFill();
+                p.stroke(0);
+                p.ellipse(200 * scaleX, 300 * scaleY, 400 * scaleX, 400 * scaleY); // Circle C' (center A, passing through B)
+                p.ellipse(500 * scaleX, 200 * scaleY, 400 * scaleX, 400 * scaleY); // Circle C'' (center C, passing through D)
+
+                // Draw points A, B, D, C
+                p.fill(0, 0, 255); // Blue color for points
+                p.noStroke();
+                p.ellipse(200 * scaleX, 300 * scaleY, 10, 10); // Point A
+                p.ellipse(400 * scaleX, 300 * scaleY, 10, 10); // Point B
+                p.ellipse(300 * scaleX, 200 * scaleY, 10, 10); // Point D
+                p.ellipse(500 * scaleX, 200 * scaleY, 10, 10); // Point C
+
+                // Label the points and lines
+                p.fill(0);
+                p.textSize(16);
+                p.textAlign(p.CENTER);
+                p.text('Δ', 50 * scaleX, 280 * scaleY);
+                p.text('Δ\'', 150 * scaleX, 30 * scaleY);
+                p.text('Δ\'\'', 350 * scaleX, 0 * scaleY);
+                p.text('A', 200 * scaleX, 320 * scaleY);
+                p.text('B', 400 * scaleX, 320 * scaleY);
+                p.text('D', 320 * scaleX, 195 * scaleY);
+                p.text('C', 500 * scaleX, 220 * scaleY);
+                p.text('C\'', 200 * scaleX, 250 * scaleY);
+                p.text('C\'\'', 500 * scaleX, 150 * scaleY);
             };
 
             p.draw = function() {
@@ -170,7 +171,7 @@
 
             p.windowResized = function() {
                 let parentWidth = document.getElementById('figure-canvas-ii').offsetWidth;
-                let canvasHeight = 1000;
+                let canvasHeight = 500;
                 p.resizeCanvas(parentWidth, canvasHeight);
                 p.setup();
             };
