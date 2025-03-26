@@ -1,0 +1,177 @@
+
+    <div class="exercise-content">
+        <p>Dans la figure ci-dessous \( \Delta \) et \( \Delta' \) sont deux droites sécantes. \( A \) et \( B \) sont deux points distincts de \( \Delta \) et \( D \) est un point de \( \Delta' \).</p>
+        <p>Soit \( C = t_{\overrightarrow{AB}}(D) \) et \( E = t_{\overrightarrow{AC}}(D) \).</p>
+        <ol type="I">
+            <li>
+                <ol>
+                    <li>
+                        <div class="strong">Construire \( C \) et \( E \).</div>
+                        <p class="correction">\( t_{\overrightarrow{AB}}(D) = C \) signifie \( \overrightarrow{AB} = \overrightarrow{DC} \).</p>
+                        <p class="correction">\( t_{\overrightarrow{AC}}(D) = E \) signifie \( \overrightarrow{AC} = \overrightarrow{DE} \).</p>
+                        <p class="correction">On a : \( \overrightarrow{AC} = \overrightarrow{DE} \).</p>
+                        <p class="correction">Alors \( \overrightarrow{AD} = \overrightarrow{CE} \).</p>
+                        <p class="correction">D’où \( \overrightarrow{BC} = \overrightarrow{CE} \).</p>
+                        <p class="correction">Par suite \( C = E * B \).</p>
+                        <div id="figure-canvas-i"></div>
+                    </li>
+                    <li>
+                        <div class="strong">Montrer que \( C \) est le milieu du segment \( [EB] \).</div>
+                        <p class="correction">On a : \( \overrightarrow{AB} = \overrightarrow{DC} \).</p>
+                        <p class="correction">Alors \( (AB) \parallel (DC) \).</p>
+                        <p class="correction">On a : \( A \in D \) et \( t_{\overrightarrow{AC}}(A) = C \).</p>
+                        <p class="correction">D’où l’image de \( D \) par \( t_{\overrightarrow{AC}} \) est la droite parallèle à \( D \) et passant par \( C \).</p>
+                        <p class="correction">D’où \( t_{\overrightarrow{AC}}(D) = (DC) \).</p>
+                        <p class="correction">On a : \( t_{\overrightarrow{AC}}(D) = E \).</p>
+                        <p class="correction">Alors \( (AC) \parallel (DE) \).</p>
+                        <p class="correction">D’où \( t_{\overrightarrow{AC}}((DE)) = (DE) \).</p>
+                    </li>
+                    <li>
+                        <div class="strong">Déterminer \( t_{\overrightarrow{AC}}(\Delta) \), \( t_{\overrightarrow{AC}}(DE) \).</div>
+                        <p class="correction">Soit \( C' \) le cercle de centre \( A \) et passant par \( B \) et \( C'' \) le cercle de centre \( C \) et passant par \( D \).</p>
+                        <p class="correction">On a \( AB = CD \).</p>
+                        <p class="correction">Alors \( C' \) et \( C'' \) ont le même rayon.</p>
+                        <p class="correction">Or, \( t_{\overrightarrow{AC}}(C') \) est le cercle de centre \( t_{\overrightarrow{AC}}(A) = C \)</p>
+                        <p class="correction">et de même rayon que \( C' \).</p>
+                        <p class="correction">Alors \( t_{\overrightarrow{AC}}(C') = C'' \).</p>
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <div class="strong">On suppose que \( A \) et \( B \) sont fixent et \( D \) est un point variable sur la droite \( \Delta' \).</div>
+                <p class="correction">Déterminer et construire l’ensemble des points \( C \) lorsque \( D \) varie.</p>
+                <p class="correction">On a : \( \overrightarrow{AB} = \overrightarrow{DC} \).</p>
+                <p class="correction">D’où \( t_{\overrightarrow{AB}}(D) = C \).</p>
+                <p class="correction">On a : \( D \) varie sur \( \Delta' \).</p>
+                <p class="correction">Alors \( t_{\overrightarrow{AB}}(D) \) varie sur \( t_{\overrightarrow{AB}}(\Delta') \).</p>
+                <p class="correction">Donc \( C \) varie sur \( \Delta'' = t_{\overrightarrow{AB}}(\Delta') \).</p>
+                <div id="figure-canvas-ii"></div>
+            </li>
+        </ol>
+    </div>
+
+    <script>
+        // Figure for question I (showing points A, B, D, C, E)
+        new p5(function(p) {
+            p.setup = function() {
+                let parentWidth = document.getElementById('figure-canvas-i').offsetWidth;
+                let canvasHeight = 200;
+                let canvas = p.createCanvas(parentWidth, canvasHeight);
+                canvas.parent('figure-canvas-i');
+
+                p.background(255);
+
+                let scaleX = parentWidth / 600;
+
+                // Draw line Δ (horizontal line)
+                p.stroke(0);
+                p.strokeWeight(2);
+                p.line(50 * scaleX, 150, 550 * scaleX, 150);
+
+                // Draw line Δ' (diagonal line intersecting Δ)
+                p.line(150 * scaleX, 50, 450 * scaleX, 180);
+
+                // Draw line DC (parallel to AB)
+                p.line(300 * scaleX, 115, 500 * scaleX, 115);
+
+                // Draw line DE (parallel to AC)
+                p.line(300 * scaleX, 115, 250 * scaleX, 180);
+
+                // Draw points A, B, D, C, E
+                p.fill(0, 0, 255); // Blue color for points
+                p.noStroke();
+                p.ellipse(200 * scaleX, 150, 10, 10); // Point A
+                p.ellipse(400 * scaleX, 150, 10, 10); // Point B
+                p.ellipse(300 * scaleX, 115, 10, 10); // Point D
+                p.ellipse(500 * scaleX, 115, 10, 10); // Point C
+                p.ellipse(250 * scaleX, 180, 10, 10); // Point E
+
+                // Label the points and lines
+                p.fill(0);
+                p.textSize(16);
+                p.textAlign(p.CENTER);
+                p.text('Δ', 50 * scaleX, 130);
+                p.text('Δ\'', 150 * scaleX, 30);
+                p.text('A', 200 * scaleX, 170);
+                p.text('B', 400 * scaleX, 170);
+                p.text('D', 320 * scaleX, 110);
+                p.text('C', 500 * scaleX, 135);
+                p.text('E', 250 * scaleX, 200);
+            };
+
+            p.draw = function() {
+                // No animation needed
+            };
+
+            p.windowResized = function() {
+                let parentWidth = document.getElementById('figure-canvas-i').offsetWidth;
+                let canvasHeight = 200;
+                p.resizeCanvas(parentWidth, canvasHeight);
+                p.setup();
+            };
+        });
+
+        // Figure for question II (showing the locus of C)
+        new p5(function(p) {
+            p.setup = function() {
+                let parentWidth = document.getElementById('figure-canvas-ii').offsetWidth;
+                let canvasHeight = 200;
+                let canvas = p.createCanvas(parentWidth, canvasHeight);
+                canvas.parent('figure-canvas-ii');
+
+                p.background(255);
+
+                let scaleX = parentWidth / 600;
+
+                // Draw line Δ (horizontal line)
+                p.stroke(0);
+                p.strokeWeight(2);
+                p.line(50 * scaleX, 150, 550 * scaleX, 150);
+
+                // Draw line Δ' (diagonal line intersecting Δ)
+                p.line(150 * scaleX, 50, 450 * scaleX, 180);
+
+                // Draw line Δ'' (locus of C, parallel to Δ' and passing through C)
+                p.line(350 * scaleX, 15, 650 * scaleX, 145);
+
+                // Draw circles C' and C''
+                p.noFill();
+                p.stroke(0);
+                p.ellipse(200 * scaleX, 150, 400 * scaleX, 400 * scaleX); // Circle C' (center A, passing through B)
+                p.ellipse(500 * scaleX, 115, 400 * scaleX, 400 * scaleX); // Circle C'' (center C, passing through D)
+
+                // Draw points A, B, D, C
+                p.fill(0, 0, 255); // Blue color for points
+                p.noStroke();
+                p.ellipse(200 * scaleX, 150, 10, 10); // Point A
+                p.ellipse(400 * scaleX, 150, 10, 10); // Point B
+                p.ellipse(300 * scaleX, 115, 10, 10); // Point D
+                p.ellipse(500 * scaleX, 115, 10, 10); // Point C
+
+                // Label the points and lines
+                p.fill(0);
+                p.textSize(16);
+                p.textAlign(p.CENTER);
+                p.text('Δ', 50 * scaleX, 130);
+                p.text('Δ\'', 150 * scaleX, 30);
+                p.text('Δ\'\'', 350 * scaleX, 0);
+                p.text('A', 200 * scaleX, 170);
+                p.text('B', 400 * scaleX, 170);
+                p.text('D', 320 * scaleX, 110);
+                p.text('C', 500 * scaleX, 135);
+                p.text('C\'', 200 * scaleX, 100);
+                p.text('C\'\'', 500 * scaleX, 65);
+            };
+
+            p.draw = function() {
+                // No animation needed
+            };
+
+            p.windowResized = function() {
+                let parentWidth = document.getElementById('figure-canvas-ii').offsetWidth;
+                let canvasHeight = 200;
+                p.resizeCanvas(parentWidth, canvasHeight);
+                p.setup();
+            };
+        });
+    </script>
