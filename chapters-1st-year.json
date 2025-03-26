@@ -23,5 +23,18 @@
         "correctionUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/linear-functions-exercise3-correction.html"
       }
     ]
+  },
+  {
+    "id": "vecteurs-et-translations",
+    "name": "Vecteurs et Translations",
+    "courseUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/vecteurs-et-translations-course.html",
+    "exercises": [
+      {
+        "id": "exercise1",
+        "name": "Exercise 1",
+        "url": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/vecteurs-et-translations-exercise1.html",
+        "correctionUrl": "https://raw.githubusercontent.com/AdemTebourbi/Math/main/vecteurs-et-translations-exercise1-correction.html"
+      }
+    ]
   }
 ]
