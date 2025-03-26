@@ -7,8 +7,6 @@
     <!-- Include MathJax for rendering LaTeX -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <!-- Include p5.js for drawing the figure -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,6 +34,10 @@
         }
         #figure-canvas-i, #figure-canvas-ii {
             width: 100%;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -54,7 +56,9 @@
                         <p class="correction">Alors \( \overrightarrow{AD} = \overrightarrow{CE} \).</p>
                         <p class="correction">D’où \( \overrightarrow{BC} = \overrightarrow{CE} \).</p>
                         <p class="correction">Par suite \( C = E * B \).</p>
-                        <div id="figure-canvas-i"></div>
+                        <div id="figure-canvas-i">
+                            <p><strong>Description de la figure :</strong> La figure montre deux droites sécantes : \( \Delta \) est une droite horizontale, et \( \Delta' \) est une droite diagonale qui coupe \( \Delta \) en un point. Sur \( \Delta \), deux points distincts \( A \) et \( B \) sont placés, \( A \) à gauche et \( B \) à droite. Sur \( \Delta' \), un point \( D \) est positionné au-dessus de \( \Delta \). Le point \( C \) est construit tel que la droite \( DC \) est parallèle à \( AB \) et de même longueur, placé à droite de \( D \) sur une ligne horizontale. Le point \( E \) est construit tel que la droite \( DE \) est parallèle à \( AC \) et de même longueur, placé en bas à gauche de \( D \) sur une ligne diagonale descendante. Les points \( A \), \( B \), \( D \), \( C \), et \( E \) sont marqués, avec \( \Delta \) et \( \Delta' \) étiquetées comme droites sécantes.</p>
+                        </div>
                     </li>
                     <li>
                         <div class="strong">Montrer que \( C \) est le milieu du segment \( [EB] \).</div>
@@ -86,182 +90,11 @@
                 <p class="correction">On a : \( D \) varie sur \( \Delta' \).</p>
                 <p class="correction">Alors \( t_{\overrightarrow{AB}}(D) \) varie sur \( t_{\overrightarrow{AB}}(\Delta') \).</p>
                 <p class="correction">Donc \( C \) varie sur \( \Delta'' = t_{\overrightarrow{AB}}(\Delta') \).</p>
-                <div id="figure-canvas-ii"></div>
+                <div id="figure-canvas-ii">
+                    <p><strong>Description de la figure :</strong> La figure montre deux droites sécantes : \( \Delta \) est une droite horizontale, et \( \Delta' \) est une droite diagonale qui coupe \( \Delta \). Sur \( \Delta \), les points fixes \( A \) (à gauche) et \( B \) (à droite) sont marqués. Un point \( D \) est placé sur \( \Delta' \), représentant une position variable. Le point \( C \) est construit tel que \( \overrightarrow{AB} = \overrightarrow{DC} \), positionné à droite de \( D \). Une droite \( \Delta'' \), parallèle à \( \Delta' \), est tracée et représente l’ensemble des positions possibles de \( C \) lorsque \( D \) varie le long de \( \Delta' \). Deux hexagones en pointillés sont également décrits : \( C' \) centré en \( A \) passant par \( B \), et \( C'' \) centré en \( C \) passant par \( D \), illustrant les translations. Les points \( A \), \( B \), \( D \), et \( C \), ainsi que les droites \( \Delta \), \( \Delta' \), et \( \Delta'' \), sont étiquetés, avec \( C' \) et \( C'' \) indiqués comme des hexagones.</p>
+                </div>
             </li>
         </ol>
     </div>
-
-    <script>
-        // Function to draw a star shape for points
-        function drawStar(p, x, y, radius1, radius2, npoints, scaleX, scaleY) {
-            let angle = p.TWO_PI / npoints;
-            let halfAngle = angle / 2.0;
-            p.beginShape();
-            for (let a = 0; a < p.TWO_PI; a += angle) {
-                let sx = x + p.cos(a) * radius2 * scaleX;
-                let sy = y + p.sin(a) * radius2 * scaleY;
-                p.vertex(sx, sy);
-                sx = x + p.cos(a + halfAngle) * radius1 * scaleX;
-                sy = y + p.sin(a + halfAngle) * radius1 * scaleY;
-                p.vertex(sx, sy);
-            }
-            p.endShape(p.CLOSE);
-        }
-
-        // Figure for question I (showing points A, B, D, C, E)
-        new p5(function(p) {
-            p.setup = function() {
-                let parentWidth = document.getElementById('figure-canvas-i').offsetWidth;
-                let canvasHeight = parentWidth * (2 / 3); // Maintain 3:2 aspect ratio
-                let canvas = p.createCanvas(parentWidth, canvasHeight);
-                canvas.parent('figure-canvas-i');
-
-                p.background(255);
-
-                let scaleX = parentWidth / 600;
-                let scaleY = canvasHeight / 400;
-
-                // Draw lines as dashed lines in purple
-                p.stroke(128, 0, 128); // Purple color
-                p.strokeWeight(2);
-                p.drawingContext.setLineDash([5, 5]); // Dashed line
-
-                // Draw line Δ (horizontal line)
-                p.line(50 * scaleX, 250 * scaleY, 550 * scaleX, 250 * scaleY);
-
-                // Draw line Δ' (diagonal line intersecting Δ)
-                p.line(150 * scaleX, 50 * scaleY, 450 * scaleX, 280 * scaleY);
-
-                // Draw line DC (parallel to AB)
-                p.line(300 * scaleX, 150 * scaleY, 500 * scaleX, 150 * scaleY);
-
-                // Draw line DE (parallel to AC)
-                p.line(300 * scaleX, 150 * scaleY, 250 * scaleX, 280 * scaleY);
-
-                // Reset line dash for points
-                p.drawingContext.setLineDash([]);
-
-                // Draw points A, B, D, C, E as stars
-                p.fill(255, 165, 0); // Orange color for points
-                p.noStroke();
-                drawStar(p, 200 * scaleX, 250 * scaleY, 5 * scaleX, 10 * scaleX, 5, scaleX, scaleY); // Point A
-                drawStar(p, 400 * scaleX, 250 * scaleY, 5 * scaleX, 10 * scaleX, 5, scaleX, scaleY); // Point B
-                drawStar(p, 300 * scaleX, 150 * scaleY, 5 * scaleX, 10 * scaleX, 5, scaleX, scaleY); // Point D
-                drawStar(p, 500 * scaleX, 150 * scaleY, 5 * scaleX, 10 * scaleX, 5, scaleX, scaleY); // Point C
-                drawStar(p, 250 * scaleX, 280 * scaleY, 5 * scaleX, 10 * scaleX, 5, scaleX, scaleY); // Point E
-
-                // Label the points and lines
-                p.fill(0);
-                p.textSize(16 * Math.min(scaleX, scaleY));
-                p.textAlign(p.CENTER);
-                p.text('Δ', 50 * scaleX, 230 * scaleY);
-                p.text('Δ\'', 150 * scaleX, 30 * scaleY);
-                p.text('A', 200 * scaleX, 270 * scaleY);
-                p.text('B', 400 * scaleX, 270 * scaleY);
-                p.text('D', 320 * scaleX, 145 * scaleY);
-                p.text('C', 500 * scaleX, 170 * scaleY);
-                p.text('E', 250 * scaleX, 300 * scaleY);
-            };
-
-            p.draw = function() {
-                // No animation needed
-            };
-
-            p.windowResized = function() {
-                let parentWidth = document.getElementById('figure-canvas-i').offsetWidth;
-                let canvasHeight = parentWidth * (2 / 3);
-                p.resizeCanvas(parentWidth, canvasHeight);
-                p.setup();
-            };
-        });
-
-        // Figure for question II (showing the locus of C)
-        new p5(function(p) {
-            p.setup = function() {
-                let parentWidth = document.getElementById('figure-canvas-ii').offsetWidth;
-                let canvasHeight = parentWidth * (2 / 3);
-                let canvas = p.createCanvas(parentWidth, canvasHeight);
-                canvas.parent('figure-canvas-ii');
-
-                p.background(255);
-
-                let scaleX = parentWidth / 600;
-                let scaleY = canvasHeight / 500;
-
-                // Draw lines as dashed lines in purple
-                p.stroke(128, 0, 128); // Purple color
-                p.strokeWeight(2);
-                p.drawingContext.setLineDash([5, 5]); // Dashed line
-
-                // Draw line Δ (horizontal line)
-                p.line(50 * scaleX, 300 * scaleY, 550 * scaleX, 300 * scaleY);
-
-                // Draw line Δ' (diagonal line intersecting Δ)
-                p.line(150 * scaleX, 50 * scaleY, 450 * scaleX, 350 * scaleY);
-
-                // Draw line Δ'' (locus of C, parallel to Δ' and passing through C)
-                p.line(350 * scaleX, 15 * scaleY, 650 * scaleX, 265 * scaleY);
-
-                // Draw C' and C'' as dashed hexagons instead of circles
-                p.noFill();
-                p.stroke(128, 0, 128);
-                p.drawingContext.setLineDash([5, 5]); // Dashed line
-                let radius = 200 * scaleX; // Radius equivalent to the original circle
-                p.beginShape();
-                for (let i = 0; i < 6; i++) {
-                    let angle = p.TWO_PI / 6 * i;
-                    let x = 200 * scaleX + radius * p.cos(angle);
-                    let y = 300 * scaleY + radius * p.sin(angle);
-                    p.vertex(x, y);
-                }
-                p.endShape(p.CLOSE); // Hexagon C'
-
-                p.beginShape();
-                for (let i = 0; i < 6; i++) {
-                    let angle = p.TWO_PI / 6 * i;
-                    let x = 500 * scaleX + radius * p.cos(angle);
-                    let y = 200 * scaleY + radius * p.sin(angle);
-                    p.vertex(x, y);
-                }
-                p.endShape(p.CLOSE); // Hexagon C''
-
-                // Reset line dash for points
-                p.drawingContext.setLineDash([]);
-
-                // Draw points A, B, D, C as stars
-                p.fill(255, 165, 0); // Orange color for points
-                p.noStroke();
-                drawStar(p, 200 * scaleX, 300 * scaleY, 5 * scaleX, 10 * scaleX, 5, scaleX, scaleY); // Point A
-                drawStar(p, 400 * scaleX, 300 * scaleY, 5 * scaleX, 10 * scaleX, 5, scaleX, scaleY); // Point B
-                drawStar(p, 300 * scaleX, 200 * scaleY, 5 * scaleX, 10 * scaleX, 5, scaleX, scaleY); // Point D
-                drawStar(p, 500 * scaleX, 200 * scaleY, 5 * scaleX, 10 * scaleX, 5, scaleX, scaleY); // Point C
-
-                // Label the points and lines
-                p.fill(0);
-                p.textSize(16 * Math.min(scaleX, scaleY));
-                p.textAlign(p.CENTER);
-                p.text('Δ', 50 * scaleX, 280 * scaleY);
-                p.text('Δ\'', 150 * scaleX, 30 * scaleY);
-                p.text('Δ\'\'', 350 * scaleX, 0 * scaleY);
-                p.text('A', 200 * scaleX, 320 * scaleY);
-                p.text('B', 400 * scaleX, 320 * scaleY);
-                p.text('D', 320 * scaleX, 195 * scaleY);
-                p.text('C', 500 * scaleX, 220 * scaleY);
-                p.text('C\'', 200 * scaleX, 250 * scaleY);
-                p.text('C\'\'', 500 * scaleX, 150 * scaleY);
-            };
-
-            p.draw = function() {
-                // No animation needed
-            };
-
-            p.windowResized = function() {
-                let parentWidth = document.getElementById('figure-canvas-ii').offsetWidth;
-                let canvasHeight = parentWidth * (2 / 3);
-                p.resizeCanvas(parentWidth, canvasHeight);
-                p.setup();
-            };
-        });
-    </script>
 </body>
 </html>
