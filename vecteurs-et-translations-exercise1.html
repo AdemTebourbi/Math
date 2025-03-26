@@ -1,63 +1,80 @@
+<div class="exercise-content">
+    <p>Dans la figure ci-dessous \( \Delta \) et \( \Delta' \) sont deux droites sécantes. \( A \) et \( B \) sont deux points distincts de \( \Delta \) et \( D \) est un point de \( \Delta' \).</p>
+    <p>Soit \( C = t_{\overrightarrow{AB}}(D) \) et \( E = t_{\overrightarrow{AC}}(D) \).</p>
+    <ol type="I">
+        <li>
+            <ol>
+                <li>Construire \( C \) et \( E \).</li>
+                <li>Montrer que \( C \) est le milieu du segment \( [EB] \).</li>
+                <li>Déterminer \( t_{\overrightarrow{AC}}(\Delta) \), \( t_{\overrightarrow{AC}}(DE) \).</li>
+                <li>Soit \( C' \) le cercle de centre \( A \) et passant par \( B \) et \( C'' \) le cercle de centre \( C \) et passant par \( D \).</li>
+                <p>Montrer que \( t_{\overrightarrow{AC}}(C) = C' \).</p>
+            </ol>
+        </li>
+        <li>
+            On suppose que \( A \) et \( B \) sont fixent et \( D \) est un point variable sur la droite \( \Delta' \).<br>
+            Déterminer et construire l’ensemble des points \( C \) lorsque \( D \) varie.
+        </li>
+    </ol>
+    <p>La figure :</p>
+    <!-- Canvas for the figure -->
+    <div id="figure-canvas" style="width: 100%;"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+<script>
+    // p5.js sketch to draw the figure
+    function setup() {
+        // Get the width of the parent container (or screen width)
+        let parentWidth = document.getElementById('figure-canvas').offsetWidth;
+        // Set a fixed height to maintain aspect ratio
+        let canvasHeight = 200;
+        let canvas = createCanvas(parentWidth, canvasHeight);
+        canvas.parent('figure-canvas'); // Attach the canvas to the div
 
-    <div class="exercise-content">
-        <p>Dans la figure ci-dessous \( \Delta \) et \( \Delta' \) sont deux droites sécantes. \( A \) et \( B \) sont deux points distincts de \( \Delta \) et \( D \) est un point de \( \Delta' \).</p>
-        <p>Soit \( C = t_{\overrightarrow{AB}}(D) \) et \( E = t_{\overrightarrow{AC}}(D) \).</p>
-        <ol type="I">
-            <li>
-                <ol>
-                    <li>Construire \( C \) et \( E \).</li>
-                    <li>Montrer que \( C \) est le milieu du segment \( [EB] \).</li>
-                    <li>Déterminer \( t_{\overrightarrow{AC}}(\Delta) \), \( t_{\overrightarrow{AC}}(DE) \).</li>
-                    <li>Soit \( C' \) le cercle de centre \( A \) et passant par \( B \) et \( C'' \) le cercle de centre \( C \) et passant par \( D \).</li>
-                    <p>Montrer que \( t_{\overrightarrow{AC}}(C) = C' \).</p>
-                </ol>
-            </li>
-            <li>
-                On suppose que \( A \) et \( B \) sont fixent et \( D \) est un point variable sur la droite \( \Delta' \).<br>
-                Déterminer et construire l’ensemble des points \( C \) lorsque \( D \) varie.
-            </li>
-        </ol>
-        <p>La figure :</p>
-        <!-- Canvas for the figure -->
-        <div id="figure-canvas"></div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
-    <script>
-        // p5.js sketch to draw the figure
-        function setup() {
-            let canvas = createCanvas(600, 200);
-            canvas.parent('figure-canvas'); // Attach the canvas to the div
+        background(255); // White background
 
-            background(255); // White background
+        // Scale coordinates based on the canvas width
+        // Original canvas width was 600, so we scale all x-coordinates by (parentWidth / 600)
+        let scaleX = parentWidth / 600;
 
-            // Draw line Δ (horizontal line)
-            stroke(0); // Black color
-            strokeWeight(2);
-            line(50, 150, 550, 150); // Δ: horizontal line from (50, 150) to (550, 150)
+        // Draw line Δ (horizontal line)
+        stroke(0); // Black color
+        strokeWeight(2);
+        line(50 * scaleX, 150, 550 * scaleX, 150); // Δ: horizontal line
 
-            // Draw line Δ' (diagonal line intersecting Δ)
-            line(150, 50, 450, 180); // Δ': diagonal line from (150, 50) to (450, 180)
+        // Draw line Δ' (diagonal line intersecting Δ)
+        line(150 * scaleX, 50, 450 * scaleX, 180); // Δ': diagonal line
 
-            // Draw points A, B on Δ, and D on Δ'
-            fill(255, 0, 0); // Red color for points
-            noStroke();
-            ellipse(200, 150, 10, 10); // Point A at (200, 150) on Δ
-            ellipse(400, 150, 10, 10); // Point B at (400, 150) on Δ
-            ellipse(300, 115, 10, 10); // Point D at (300, 115) on Δ'
+        // Draw points A, B on Δ, and D on Δ'
+        fill(255, 0, 0); // Red color for points
+        noStroke();
+        ellipse(200 * scaleX, 150, 10, 10); // Point A on Δ
+        ellipse(400 * scaleX, 150, 10, 10); // Point B on Δ
+        ellipse(300 * scaleX, 115, 10, 10); // Point D on Δ'
 
-            // Label the points and lines
-            fill(0); // Black color for text
-            textSize(16);
-            textAlign(CENTER);
-            text('Δ', 50, 130); // Label for Δ
-            text('Δ\'', 150, 30); // Label for Δ'
-            text('A', 200, 170); // Label for point A
-            text('B', 400, 170); // Label for point B
-            text('D', 320, 110); // Label for point D
-        }
+        // Label the points and lines
+        fill(0); // Black color for text
+        textSize(16);
+        textAlign(CENTER);
+        text('Δ', 50 * scaleX, 130); // Label for Δ
+        text('Δ\'', 150 * scaleX, 30); // Label for Δ'
+        text('A', 200 * scaleX, 170); // Label for point A
+        text('B', 400 * scaleX, 170); // Label for point B
+        text('D', 320 * scaleX, 110); // Label for point D
+    }
 
-        function draw() {
-            // No animation needed, so draw() can be empty
-        }
-        setup()
-    </script>
+    function draw() {
+        // No animation needed, so draw() can be empty
+    }
+
+    // Handle window resize to make the canvas responsive
+    function windowResized() {
+        let parentWidth = document.getElementById('figure-canvas').offsetWidth;
+        let canvasHeight = 200;
+        resizeCanvas(parentWidth, canvasHeight);
+        setup(); // Redraw the figure when the window is resized
+    }
+
+    // Call setup manually (optional, p5.js calls it automatically)
+    setup();
+</script>
